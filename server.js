@@ -1,10 +1,22 @@
 // server.js
 const express = require('express');
 const bodyParser = require('body-parser');
-const fs = require('fs');
-const path = require('path');
+const cors = require('cors');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
+app.use(cors());
+app.use(bodyParser.json());
+
+// Example route
+app.get('/data', (req, res) => {
+    res.json({ message: 'Hello from the backend!' });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
 
 // Middleware
 app.use(bodyParser.json());
