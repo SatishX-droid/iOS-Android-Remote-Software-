@@ -143,3 +143,9 @@ You can deploy the backend on [Render](https://render.com/) and the frontend on 
 ## License
 
 This project is licensed under the MIT Licence.
+
+## Disclaimer 
+
+Note: The developer provides no warranty with this software and will not be responsible for any direct or indirect damage caused by the usage of this tool. iOS-Android-Remote-Software is built for educational and internal use only.
+
+Attention: We do not endorse any illegal or unethical use of this tool. The user assumes all responsibility for the use of this software.
