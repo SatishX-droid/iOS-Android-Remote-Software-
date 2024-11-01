@@ -1,6 +1,5 @@
-Here's a detailed `README.md` tailored for your GitHub repository at [iOS-Android-Remote-Software](https://github.com/SatishX-droid/iOS-Android-Remote-Software). This includes descriptions for both the backend and frontend setup, as well as deployment instructions:
+Here's a detailed `README.md` tailored of GitHub repository at [iOS-Android-Remote-Software](https://github.com/SatishX-droid/iOS-Android-Remote-Software). This includes descriptions for both the backend and frontend setup, as well as deployment instructions:
 
-```markdown
 # iOS-Android Remote Monitoring Software
 
 This repository provides a remote monitoring software that includes a **Node.js backend** for processing user requests and feature toggling, along with a **frontend** web interface to interact with these features. This project is designed for educational and personal use only.
