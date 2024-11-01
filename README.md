@@ -67,8 +67,8 @@ This repository provides a remote monitoring software that includes a **Node.js 
 🤖and more ......
 
 
-Contact :- [![Telegram Badge](https://img.shields.io/badge/Telegram-Contact-blue?logo=telegram&style=flat-square)](https://t.me/ShadowrootX)
-
+[![Telegram Badge](https://img.shields.io/badge/Telegram-Contact-blue?logo=telegram&style=flat-square)](https://t.me/ShadowrootX)  [![Telegram Badge](https://img.shields.io/badge/Telegram-Contact-blue?logo=telegram&style=flat-square)](https://t.me/ShadowrootX) [![Telegram Badge](https://img.shields.io/badge/Telegram-Contact-blue?logo=telegram&style=flat-square)](https://t.me/ShadowrootX)
+ [![Telegram Badge](https://img.shields.io/badge/Telegram-Contact-blue?logo=telegram&style=flat-square)](https://t.me/ShadowrootX) [![Telegram Badge](https://img.shields.io/badge/Telegram-Contact-blue?logo=telegram&style=flat-square)](https://t.me/ShadowrootX)
 
 ## Project Structure
 
