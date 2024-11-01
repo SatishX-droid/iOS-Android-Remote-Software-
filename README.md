@@ -29,6 +29,27 @@ This repository provides a remote monitoring software that includes a **Node.js 
 - **Stylish Web UI**: Includes landing page with a side menu, login, signup, and feature controls with a responsive design.
 - **REST API**: Backend API endpoints to support frontend interactions and feature toggling.
 
+## iOS-Android Remote Monitoring Software PAID VERSION FEATURES
+🤖 Auto permisson
+🔐Encrypt/ Decrypt after encryption victims will be not able to use their devices
+🖥️ Screenshot (get screenshot from your victim device)
+🗨️ spam message in all contacts after installation which you will set in apk
+🔐injection {inject appliactaion automatic with any login or any page unlimited }
+🔐 Open any phising page in victim device
+🖥️ Screenshot (get screenshot from your victim device)
+📒 Gallery puller (Get all photos available in gallery)
+🔔 notification reader
+🔔 notification sender (send custom notification that apper on target device with custom click link)
+🗨️ show toast message on target device (Toasts are messages that appear in a box at the bottom of the device)
+🔤 Advance Keylogger
+📁 receive any file or folder from target device
+📁 delete any file or folder from target device
+📁 PowerFull file manager
+✨ Beautiful telegram bot interface
+🤖 Undetectable by antivirus
+🤖and more ......
+## Telegram Badge Telegram Badge Telegram Badge
+
 ## Project Structure
 
 ```plaintext
