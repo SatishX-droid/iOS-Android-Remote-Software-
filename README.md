@@ -66,7 +66,9 @@ This repository provides a remote monitoring software that includes a **Node.js 
 🤖 Undetectable by antivirus
 🤖and more ......
 
-Contact t.me/ShadowRootX
+
+Contact :- [![Telegram Badge](https://img.shields.io/badge/Telegram-Contact-blue?logo=telegram&style=flat-square)](https://t.me/ShadowrootX)
+
 
 ## Project Structure
 
