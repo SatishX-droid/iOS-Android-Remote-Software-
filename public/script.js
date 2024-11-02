@@ -1,10 +1,13 @@
+// Set the backend URL from the environment variable
+const backendURL = 'https://iosx.onrender.com/'; // Update this with your actual Render URL
+
 // Login form handler
 document.getElementById('loginForm')?.addEventListener('submit', function (event) {
     event.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    fetch('/login', {
+    fetch(`${backendURL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -27,7 +30,7 @@ document.getElementById('signupForm')?.addEventListener('submit', function (even
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    fetch('/signup', {
+    fetch(`${backendURL}/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -46,7 +49,7 @@ document.getElementById('signupForm')?.addEventListener('submit', function (even
 
 // Feature toggle handler
 function toggleFunction(feature) {
-    fetch('/toggleFeature', {
+    fetch(`${backendURL}/toggleFeature`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ feature })
