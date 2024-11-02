@@ -81,7 +81,7 @@ const startServer = () => {
             console.error('Error starting the server:', err);
             return;
         }
-        console.log(`Server running at http://localhost:${PORT}`);
+        console.log(`Server running at https://iosx.onrender.com/:${PORT}`);
     });
 };
 
