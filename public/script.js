@@ -1,5 +1,4 @@
-// Set the backend URL from the environment variable
-const backendURL = 'https://iosx.onrender.com/'; // Update this with your actual Render URL
+const backendURL = 'https://iosx.onrender.com'; // Your Render backend URL
 
 // Login form handler
 document.getElementById('loginForm')?.addEventListener('submit', function (event) {
