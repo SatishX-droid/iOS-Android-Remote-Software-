@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const fs = require('fs'); // Ensure fs is imported
+const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://iosx.vercel.app/', // Replace with your actual Vercel URL
+}));
 app.use(bodyParser.json());
 app.use(express.static('public')); // Serve static files from the 'public' directory
 
@@ -27,13 +29,9 @@ function writeDatabase(data) {
     fs.writeFileSync(databaseFile, JSON.stringify(data, null, 2));
 }
 
-// Example route
-app.get('/data', (req, res) => {
-    res.json({ message: 'Hello from the backend!' });
-});
-
 // User signup
 app.post('/signup', (req, res) => {
+    console.log('Signup request received:', req.body);
     const { username, password } = req.body;
     let database = readDatabase();
 
@@ -48,6 +46,7 @@ app.post('/signup', (req, res) => {
 
 // User login
 app.post('/login', (req, res) => {
+    console.log('Login request received:', req.body);
     const { username, password } = req.body;
     const database = readDatabase();
 
@@ -74,31 +73,7 @@ app.post('/toggleFeature', (req, res) => {
     res.json({ message: `${feature} toggled to ${database.features[feature] ? 'ON' : 'OFF'}` });
 });
 
-// Function to start the server
-const startServer = () => {
-    app.listen(PORT, (err) => {
-        if (err) {
-            console.error('Error starting the server:', err);
-            return;
-        }
-        console.log(`Server running at https://iosx.onrender.com/:${PORT}`);
-    });
-};
-
-// Check for existing processes and start the server
-const isPortInUse = (port) => {
-    return new Promise((resolve) => {
-        const server = app.listen(port, () => {
-            server.close();
-            resolve(false);
-        }).on('error', () => resolve(true));
-    });
-};
-
-isPortInUse(PORT).then(inUse => {
-    if (inUse) {
-        console.error(`Port ${PORT} is already in use. Please stop the process using it and try again.`);
-    } else {
-        startServer();
-    }
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server running at https://iosx.onrender.com:${PORT}`);
 });
