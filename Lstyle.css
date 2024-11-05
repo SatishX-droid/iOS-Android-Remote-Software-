@@ -28,12 +28,6 @@ header {
     z-index: 1000;
 }
 
-header h1 {
-    font-size: 1.5em;
-    font-weight: bold;
-    font-style: italic;
-}
-
 .header-logo {
     color: #12D640;
     font-size: 1.5em;
@@ -50,12 +44,6 @@ header h1 {
     cursor: pointer;
     color: #fff;
     font-size: 1.5em;
-}
-
-.menu-icon {
-    width: 24px;
-    height: 24px;
-    fill: #12D640;
 }
 
 /* Sidebar Menu Styling */
@@ -170,6 +158,7 @@ footer a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1001;
 }
 
 .modal-content {
@@ -206,6 +195,12 @@ footer a:hover {
 
 .modal-content button:hover {
     background-color: #0e9b2c;
+}
+
+#error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 /* Responsive Adjustments */
