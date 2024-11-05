@@ -117,3 +117,20 @@ main {
     margin-top: 20px;
     color: #fff;
 }
+.logout-button {
+    background-color: transparent;
+    border: none;
+    color: #fff; /* Change this to your preferred color */
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 20px; /* Adjust margin as needed */
+}
+
+.logout-button i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+.logout-button:hover {
+    color: #ff5555; /* Change color on hover */
+}
+
