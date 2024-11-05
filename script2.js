@@ -15,7 +15,7 @@ function validatePasskey() {
     const passkey = document.getElementById('passkeyInput').value;
     const errorMessage = document.getElementById('error-message');
 
-    fetch('https://iosx.onrender.com', {
+    fetch('https://iosx.onrender.com/Login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ passkey })
