@@ -15,7 +15,7 @@ function validatePasskey() {
     const passkey = document.getElementById('passkeyInput').value;
     const errorMessage = document.getElementById('error-message');
 
-    fetch('https://iosx.onrender.com/Login', {
+    fetch('https://iosx.onrender.com/login', { // Ensure the correct endpoint
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ passkey })
@@ -29,6 +29,7 @@ function validatePasskey() {
     })
     .catch(error => {
         errorMessage.textContent = "An error occurred. Please try again.";
+        console.error("Login error:", error); // Log error to console for debugging
     });
 }
 
