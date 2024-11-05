@@ -41,51 +41,25 @@
     </main>
 
     <script>
-        // Check if user is authenticated before displaying dashboard content
-        fetch('https://iosx.onrender.com/auth-status', {
-            credentials: 'include'
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (!data.authenticated) {
-                // Redirect to landing page if not authenticated
-                window.location.href = "landing.html";
-            }
-        })
-        .catch(error => {
-            console.error("Error checking authentication status:", error);
+    // Check if user is authenticated before displaying dashboard content
+    fetch('https://iosx.onrender.com/auth-status', {
+        credentials: 'include' // Ensure credentials are sent
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (!data.authenticated) {
+            // Redirect to landing page if not authenticated
+            console.log("User is not authenticated, redirecting to landing page.");
             window.location.href = "landing.html";
-        });
-
-        // Function to fetch data based on activity type
-        function fetchData(activityType) {
-            fetch(`https://iosx.onrender.com/fetch/${activityType}`, {
-                credentials: 'include'
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('dataDisplay').textContent = data.data || "No data available";
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error);
-            });
+        } else {
+            console.log("User is authenticated.");
         }
+    })
+    .catch(error => {
+        console.error("Error checking authentication status:", error);
+        window.location.href = "landing.html";
+    });
+</script>
 
-        // Logout function
-        function logout() {
-            fetch('https://iosx.onrender.com/logout', {
-                method: 'POST',
-                credentials: 'include'
-            })
-            .then(response => {
-                if (response.ok) {
-                    window.location.href = "landing.html"; // Redirect to landing page after logout
-                }
-            })
-            .catch(error => {
-                console.error("Error during logout:", error);
-            });
-        }
-    </script>
 </body>
 </html>
