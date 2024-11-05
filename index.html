@@ -33,6 +33,10 @@
                 <a href="https://github.com/yourprofile" target="_blank" class="github"><i class="fab fa-github"></i></a>
                 <a href="https://www.youtube.com/yourchannel" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
             </div>
+            <!-- Logout Button -->
+            <button id="logoutButton" onclick="logout()" class="logout-button">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
         </div>
     </header>
 
@@ -87,6 +91,25 @@
                     console.error("Error fetching data:", error);
                     document.getElementById('dataDisplay').textContent = "Error fetching data.";
                 });
+        }
+
+        // Function to handle logout
+        function logout() {
+            fetch('https://iosx.onrender.com/logout', {
+                method: 'POST',
+                credentials: 'include' // Important for sending cookies with the request
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect to landing page after logout
+                    window.location.href = "landing.html";
+                } else {
+                    console.error("Logout failed:", response.statusText);
+                }
+            })
+            .catch(error => {
+                console.error("Error during logout:", error);
+            });
         }
     </script>
 </body>
