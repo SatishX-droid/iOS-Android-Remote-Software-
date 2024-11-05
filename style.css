@@ -1,0 +1,119 @@
+/* Background Video Styling */
+#backgroundVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    filter: brightness(0.4); /* Darken the video slightly for better readability */
+}
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+/* Header Styling */
+.header-top {
+    padding: 30px 0;
+    text-align: center;
+    background: none; /* Remove background color */
+}
+
+.header-top h1 a {
+    color: #12D640;
+    text-decoration: none;
+    font-size: 28px;
+    text-align: center;
+}
+
+.header-top h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.nav-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-menu ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-menu ul li a:hover {
+    color: #12D640;
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0 8px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #12D640;
+}
+
+/* Main Content Styling */
+main {
+    padding: 20px;
+    color: #fff; /* Text color adjusted for dark background */
+}
+
+.activity-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.activity-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+}
+
+/* Button styles for each activity */
+.notifications { background-color: #ff9800; }
+.sms { background-color: #4caf50; }
+.call-logs { background-color: #2196f3; }
+.location { background-color: #f44336; }
+.social-media { background-color: #3b5998; }
+.gallery { background-color: #9c27b0; }
+.file-manager { background-color: #607d8b; }
+.keystrokes { background-color: #e91e63; }
+
+/* Hover effect */
+.activity-buttons button:hover {
+    opacity: 0.8;
+}
+
+#dataDisplay {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #fff;
+}
