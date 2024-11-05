@@ -26,7 +26,7 @@ function validatePasskey() {
     })
     .then(response => {
         if (response.ok) {
-            window.location.href = "index.html"; // Redirect to dashboard if passkey is correct
+            window.location.href = "https://iosx.vercel.app/index.html"; // Redirect to dashboard if passkey is correct
         } else {
             errorMessage.textContent = "Incorrect passkey. Please try again.";
         }
