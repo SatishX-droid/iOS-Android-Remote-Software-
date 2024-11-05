@@ -19,7 +19,20 @@
         <div class="container">
             <h1><a href="index.html">Monitoring Dashboard</a></h1>
             <h2>Real-Time Monitoring for <span style="color:#12D640">iOS Activities</span></h2>
-            <button onclick="logout()" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            <nav class="nav-menu">
+                <ul>
+                    <li class="active"><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <a href="mailto:example@gmail.com" target="_blank" class="gmail"><i class="fab fa-google"></i></a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yourprofile" target="_blank" class="github"><i class="fab fa-github"></i></a>
+                <a href="https://www.youtube.com/yourchannel" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
     </header>
 
@@ -41,25 +54,40 @@
     </main>
 
     <script>
-    // Check if user is authenticated before displaying dashboard content
-    fetch('https://iosx.onrender.com/auth-status', {
-        credentials: 'include' // Ensure credentials are sent
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (!data.authenticated) {
-            // Redirect to landing page if not authenticated
-            console.log("User is not authenticated, redirecting to landing page.");
-          } else {
-            console.log("User is authenticated.");
-            window.location.href = "index.html";
-        }
-    })
-    .catch(error => {
-        console.error("Error checking authentication status:", error);
-        window.location.href = "landing.html";
-    });
-</script>
+        // Check if user is authenticated before displaying dashboard content
+        fetch('https://iosx.onrender.com/auth-status', { 
+            credentials: 'include' // Important for sending cookies with the request
+        })
+            .then(response => {
+                if (!response.ok) {
+                    // Redirect to landing page if not authenticated
+                    
+                }
+            })
+            .catch(error => {
+                console.error("Error checking authentication status:", error);
+                window.location.href = "landing.html";
+            });
 
+        // Function to fetch data based on activity type
+        function fetchData(activityType) {
+            fetch(`https://iosx.onrender.com/fetch/${activityType}`, {
+                credentials: 'include' // Important for sending cookies with the request
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch data");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('dataDisplay').textContent = data.data || "No data available";
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                    document.getElementById('dataDisplay').textContent = "Error fetching data.";
+                });
+        }
+    </script>
 </body>
 </html>
