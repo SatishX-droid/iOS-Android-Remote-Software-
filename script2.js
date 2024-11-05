@@ -15,15 +15,16 @@ function validatePasskey() {
     const passkey = document.getElementById('passkeyInput').value;
     const errorMessage = document.getElementById('error-message');
 
-    console.log(`Attempting login with passkey: ${passkey}`); // Log the passkey being sent
-
-    fetch('https://iosx.onrender.com/login', { // Ensure the endpoint matches the one in your server
+    fetch('https://iosx.onrender.com/login', { // Ensure this matches your server's route
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json' // Added to support JSON responses
+        },
+        credentials: 'include', // Important: Include credentials to allow session cookies
         body: JSON.stringify({ passkey })
     })
     .then(response => {
-        console.log(`Response status: ${response.status}`); // Log the response status
         if (response.ok) {
             window.location.href = "index.html"; // Redirect to dashboard if passkey is correct
         } else {
@@ -31,7 +32,6 @@ function validatePasskey() {
         }
     })
     .catch(error => {
-        console.error("Fetch error:", error); // Log any fetch errors
         errorMessage.textContent = "An error occurred. Please try again.";
     });
 }
