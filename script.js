@@ -1,6 +1,6 @@
 async function fetchData(activityType) {
     try {
-        const response = await fetch(`http://<YOUR_SERVER_URL>/fetch/${activityType}`);
+        const response = await fetch(`https://iosx.onrender.com/fetch/${activityType}`);
         if (!response.ok) throw new Error("Network response was not ok");
 
         const result = await response.json();
