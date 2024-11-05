@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="Lstyle.css">
+</head>
+<body>
+
+    <!-- Mobile Navigation Toggle Button -->
+    <button type="button" class="mobile-nav-toggle d-lg-none" onclick="toggleSidebar()">
+        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
+        </svg>
+    </button>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <section id="home">
+            <h1>Welcome to the Monitoring Dashboard</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel convallis erat.</p>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae felis vel dolor commodo sagittis.</p>
+        </section>
+
+        <section id="features">
+            <h2>Features</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis metus non justo viverra, nec feugiat metus commodo.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices velit at sapien bibendum, id tristique eros pharetra.</p>
+        </section>
+
+        <!-- Button to go to the iOS Monitoring Dashboard -->
+        <div class="dashboard-link">
+            <button class="button" onclick="showPasskeyModal()">Go to Dashboard</button>
+        </div>
+    </div>
+
+    <!-- Passkey Modal -->
+    <div id="passkeyModal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Passkey</h2>
+            <input type="password" id="passkeyInput" placeholder="Enter passkey">
+            <button onclick="validatePasskey()">Submit</button>
+            <p id="error-message"></p>
+        </div>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>
