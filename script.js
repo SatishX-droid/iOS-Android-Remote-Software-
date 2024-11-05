@@ -7,5 +7,6 @@ async function fetchData(activityType) {
         document.getElementById('dataDisplay').innerText = `${activityType}: ${result.data}`;
     } catch (error) {
         document.getElementById('dataDisplay').innerText = `Error: ${error.message}`;
+        console.error("Fetch data error:", error); // Log error to console for debugging
     }
 }
