@@ -5,15 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iOS Android Remote Software</title>
     <link rel="stylesheet" href="Lstyle.css">
+    <style>
+        /* Header and Footer Styling */
+        .header, .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        /* Logo Styling */
+        .logo {
+            font-size: 24px;
+            font-style: italic;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Mobile Navigation Toggle Styling */
+        .mobile-nav-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* Footer Text */
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Mobile Navigation Toggle Button -->
-    <button type="button" class="mobile-nav-toggle d-lg-none" onclick="toggleSidebar()">
-        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-            <path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
-        </svg>
-    </button>
+    <!-- Header with Logo and Mobile Navigation Toggle -->
+    <header class="header">
+        <div class="logo">Xspy</div>
+        <button type="button" class="mobile-nav-toggle d-lg-none" onclick="toggleSidebar()">
+            <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
+            </svg>
+        </button>
+    </header>
 
     <!-- Sidebar Menu -->
     <div class="sidebar" id="sidebar">
@@ -27,27 +63,59 @@
 
     <!-- Main Content -->
     <div class="content">
+        
+        <!-- Home Section -->
         <section id="home">
             <h1>Welcome to iOS Android Remote Software</h1>
             <p>Unlock the power of seamless device management with our iOS Android Remote Software. Whether you’re monitoring notifications, managing call logs, or accessing social media, our tool is designed for both iOS and Android platforms, ensuring a comprehensive experience. Enjoy features like real-time data updates, user-friendly interfaces, and robust security. Join us today and enhance your device management capabilities!</p>
         </section>
 
+        <!-- About Section -->
         <section id="about">
-            <h2>About</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae felis vel dolor commodo sagittis.</p>
+            <h2>About iOS Android Remote Software</h2>
+            <p>iOS Android Remote Software is an innovative solution designed to empower users with comprehensive remote device management capabilities. Our software bridges the gap between iOS and Android platforms, offering a user-friendly interface and advanced features for efficient monitoring and control.</p>
+            
+            <h3>Key Features:</h3>
+            <ul>
+                <li><strong>Real-Time Monitoring:</strong> Stay updated with instant notifications/Access for SMS, Filemanager, Gallery, Keystrokes, Call logs, and Social media activities.</li>
+                <li><strong>User-Friendly Interface:</strong> Navigate effortlessly with our intuitive design, suitable for users of all skill levels.</li>
+                <li><strong>Cross-Platform Compatibility:</strong> Seamlessly manage both iOS and Android devices from a single platform.</li>
+                <li><strong>Secure Access:</strong> Your data privacy is our priority; we implement robust security measures to protect your information.</li>
+                <li><strong>Customer Support:</strong> Our dedicated support team is here to assist you with any questions or issues.</li>
+            </ul>
+            <p>Join the growing community of users who are taking control of their devices with iOS Android Remote Software. Experience the future of remote management today!</p>
         </section>
 
+        <!-- Features Section -->
         <section id="features">
-            <h2>Features</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis metus non justo viverra, nec feugiat metus commodo.</p>
+            <h2>Features of iOS Android Remote Software</h2>
+            <ul>
+                <li><strong>Instant Notifications:</strong> Stay updated in real-time with instant alerts for important events on your devices.</li>
+                <li><strong>SMS Access:</strong> Monitor and manage SMS communications effortlessly, ensuring you never miss a message.</li>
+                <li><strong>File Manager Access:</strong> Gain full control over your files with secure access to the file manager for easy management.</li>
+                <li><strong>Gallery Monitoring:</strong> View and manage photo access in your gallery, keeping track of all media activities.</li>
+                <li><strong>Keystroke Logging:</strong> Capture keystrokes to gain insights into user activities and interactions on the device.</li>
+                <li><strong>Call Log Access:</strong> Track incoming and outgoing calls with detailed logs for better communication management.</li>
+                <li><strong>Social Media Activity Monitoring:</strong> Stay informed about social media interactions, helping you manage your online presence.</li>
+            </ul>
+            <p><strong>Advanced Web UI:</strong> Our user-friendly web interface provides seamless navigation and management tools for all your monitoring needs.</p>
+            <p><strong>Integration with Telegram and Discord:</strong> Enjoy real-time updates and notifications directly on your favorite messaging platforms, ensuring you stay connected at all times.</p>
+            <p>Unlock the full potential of your devices with iOS Android Remote Software and take your remote management to the next level!</p>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact">
-            <h2>Contact</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices velit at sapien bibendum, id tristique eros pharetra.</p>
+            <h2>Contact Us</h2>
+            <p>We’re here to help! If you have any questions, feedback, or need assistance with our iOS Android Remote Software, please reach out to us. Your inquiries are important to us, and we strive to respond as quickly as possible.</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:support@xspy.in">support@xspy.in</a></li>
+                <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+                <li><strong>Live Chat:</strong> Available on our website from 9 AM to 9 PM (UTC)</li>
+            </ul>
+            <p>We appreciate your interest in iOS Android Remote Software and look forward to assisting you!</p>
         </section>
 
-        <!-- Button to go to the iOS Monitoring Dashboard -->
+        <!-- Dashboard Button -->
         <div class="dashboard-link">
             <button class="button" onclick="showPasskeyModal()">Go to Dashboard</button>
         </div>
@@ -62,6 +130,11 @@
             <p id="error-message"></p>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>©️ <a href="https://xspy.in" target="_blank" style="color: #fff;">Xspy</a> - Made with ❤️ by SatishX-Droid.</p>
+    </footer>
 
     <script src="script2.js"></script>
 </body>
