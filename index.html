@@ -35,10 +35,10 @@
 
         /* Modal content */
         .modal-content {
-            background-color: #780606;
+            background-color: #000;
             margin: auto;
             padding: 30px;
-            border: 1px solid #888;
+            border: 1px solid #fff;
             width: 80%;
             max-width: 400px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -61,7 +61,7 @@
         .close {
             color: #fff;
             float: right;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: bold;
         }
 
@@ -91,7 +91,7 @@
 
         /* Submit button */
         .submit-btn {
-            background-color: #000000;
+            background-color: #12D640;
             color: white;
             padding: 15px 30px;
             border: none;
@@ -110,7 +110,7 @@
         .modal h2 {
             font-size: 24px;
             margin-bottom: 20px;
-            color: #000000;
+            color: #fff;
             font-family: 'Arial', sans-serif;
             font-style: italic;
         }
@@ -118,13 +118,10 @@
         /* Subheading inside the modal */
         .modal .subheading {
             font-size: 16px;
-            color: #000000;
+            color: #fff;
             font-family: 'Arial', sans-serif;
             font-style: italic;
             margin-top: 20px;
-            subheading.subheading-link a {
-            color: #0000;
-            text-decoration: none;
         }
 
         /* Welcome message after password is entered */
@@ -225,7 +222,7 @@
     <script>
         // Password check function
         function checkPassword() {
-            var correctPassword = "c0f5486ffed9c39a";  // Set your password here
+            var correctPassword = "f530cc8e37a7127f";  // Set your password here
             var password = document.getElementById("passwordInput").value;
 
             if (password === correctPassword) {
@@ -247,7 +244,7 @@
             <input type="password" id="passwordInput" class="password-input" placeholder="Enter password" />
             <br>
             <button onclick="checkPassword()" class="submit-btn">Submit</button>
-             <p class="subheading">Made with ❤️ by SatishX-Droid</a></p>
+            <p class="subheading">Made with ❤️ by SatishX-Droid</a></p>
         </div>
     </div>
 
