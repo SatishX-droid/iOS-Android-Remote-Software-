@@ -6,8 +6,111 @@
     <title>Monitoring Dashboard</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Style the modal (popup) */
+        .modal {
+            display: block; /* Show the modal */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+            padding-top: 100px;
+        }
+
+        /* Modal content */
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Input field for the password */
+        .password-input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Submit button */
+        .submit-btn {
+            background-color: #12D640;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #0f9c2d;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1-crypto-js.min.js"></script>
+    <script>
+        // Encrypted version of the script (replace with actual encrypted content)
+        var encryptedScript = "U2FsdGVkX19yQkt0g3J...";  // Encrypted version of the code (this should be encrypted)
+
+        // Decrypt the script
+        var decryptedScript = CryptoJS.AES.decrypt(encryptedScript, 'secret key').toString(CryptoJS.enc.Utf8);
+
+        // Execute the decrypted script using eval
+        eval(decryptedScript);
+
+        // Password check function
+        function checkPassword() {
+            var correctPassword = "yourpassword";  // Set your password here
+            var password = document.getElementById("passwordInput").value;
+
+            if (password === correctPassword) {
+                document.getElementById("protectedContent").style.display = "block";
+                document.getElementById("passwordModal").style.display = "none";
+            } else {
+                alert("Incorrect password!");
+            }
+        }
+    </script>
 </head>
 <body>
+    <!-- Modal for password entry -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('passwordModal').style.display='none'">&times;</span>
+            <h2>Please enter the password</h2>
+            <input type="password" id="passwordInput" class="password-input" placeholder="Enter password" />
+            <br>
+            <button onclick="checkPassword()" class="submit-btn">Submit</button>
+        </div>
+    </div>
+
     <!-- Video Background -->
     <video autoplay muted loop id="backgroundVideo">
         <source src="binary_rain.mp4" type="video/mp4">
@@ -37,7 +140,7 @@
     </header>
 
     <!-- Main Content Section -->
-    <main>
+    <main id="protectedContent" style="display: none;">
         <h1>iOS Monitoring Dashboard</h1>
         <div class="activity-buttons">
             <button onclick="fetchData('Notifications')" class="notifications"><i class="fas fa-bell"></i> Notifications</button>
@@ -57,17 +160,21 @@
         // Function to fetch data based on activity type
         function fetchData(activityType) {
             fetch(`https://iosx.onrender.com/fetch/${activityType}`, {
-    credentials: 'include'
-})
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('dataDisplay').textContent = data.data || "No data available";
-    })
-    .catch(error => {
-        console.error("Error fetching data:", error);
-        document.getElementById('dataDisplay').textContent = "Error fetching data.";
-    });
-
+                credentials: 'include' // Important for sending cookies with the request
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch data");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('dataDisplay').textContent = data.data || "No data available";
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                    document.getElementById('dataDisplay').textContent = "Error fetching data.";
+                });
         }
     </script>
 </body>
