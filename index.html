@@ -9,7 +9,7 @@
     <style>
         /* Style the modal (popup) */
         .modal {
-            display: block; /* Show the modal */
+            display: block;
             position: fixed;
             z-index: 1;
             left: 0;
@@ -17,21 +17,44 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+            background-color: rgba(0,0,0,0.4);
             padding-top: 100px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        /* Fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         /* Modal content */
         .modal-content {
             background-color: #fff;
             margin: auto;
-            padding: 20px;
+            padding: 30px;
             border: 1px solid #888;
             width: 80%;
             max-width: 400px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             border-radius: 8px;
             text-align: center;
+            animation: zoomIn 0.5s ease-out;
+        }
+
+        /* Zoom-in effect */
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
         }
 
         /* Close button */
@@ -52,47 +75,158 @@
         /* Input field for the password */
         .password-input {
             width: 80%;
-            padding: 10px;
+            padding: 15px;
             margin: 10px 0;
             border: 2px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: border-color 0.3s;
+        }
+
+        .password-input:focus {
+            border-color: #12D640;
+            outline: none;
         }
 
         /* Submit button */
         .submit-btn {
             background-color: #12D640;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 30px;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
         }
 
         .submit-btn:hover {
             background-color: #0f9c2d;
         }
+
+        /* Heading inside the modal */
+        .modal h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Subheading inside the modal */
+        .modal .subheading {
+            font-size: 16px;
+            color: #555;
+            font-family: 'Arial', sans-serif;
+            margin-top: 20px;
+        }
+
+        /* Welcome message after password is entered */
+        .welcome-message {
+            display: none;
+            font-size: 28px;
+            color: #12D640;
+            font-weight: bold;
+            animation: slideIn 1s ease-out;
+        }
+
+        /* Slide-in effect */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        footer .copyright {
+            font-size: 16px;
+        }
+
+        footer .footer-link {
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        footer .footer-link a {
+            color: #12D640;
+            text-decoration: none;
+        }
+
+        footer .footer-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main header logo styling */
+        header #header {
+            background-color: black;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        header #header h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 48px;
+            font-style: italic;
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Header Section with Navigation and Social Links */
+        header #header h2 {
+            font-family: 'Arial', sans-serif;
+            font-size: 22px;
+            color: white;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        header .nav-menu ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        header .nav-menu ul li {
+            margin: 0 15px;
+        }
+
+        header .nav-menu ul li a {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        header .nav-menu ul li a:hover {
+            color: #12D640;
+        }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1-crypto-js.min.js"></script>
     <script>
-        // Encrypted version of the script (replace with actual encrypted content)
-        var encryptedScript = "U2FsdGVkX19yQkt0g3J...";  // Encrypted version of the code (this should be encrypted)
-
-        // Decrypt the script
-        var decryptedScript = CryptoJS.AES.decrypt(encryptedScript, 'secret key').toString(CryptoJS.enc.Utf8);
-
-        // Execute the decrypted script using eval
-        eval(decryptedScript);
-
         // Password check function
         function checkPassword() {
             var correctPassword = "yourpassword";  // Set your password here
             var password = document.getElementById("passwordInput").value;
 
             if (password === correctPassword) {
-                document.getElementById("protectedContent").style.display = "block";
                 document.getElementById("passwordModal").style.display = "none";
+                document.getElementById("protectedContent").style.display = "block";
+                document.getElementById("welcomeMessage").style.display = "block";
             } else {
                 alert("Incorrect password!");
             }
@@ -104,10 +238,11 @@
     <div id="passwordModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="document.getElementById('passwordModal').style.display='none'">&times;</span>
-            <h2>Please enter the password</h2>
+            <h2>Welcome in Xspy</h2>
             <input type="password" id="passwordInput" class="password-input" placeholder="Enter password" />
             <br>
             <button onclick="checkPassword()" class="submit-btn">Submit</button>
+            <p class="subheading">Made with ❤️ by SatishX-Droid</p>
         </div>
     </div>
 
@@ -118,9 +253,9 @@
     </video>
 
     <!-- Header Section with Navigation and Social Links -->
-    <header id="header" class="header-top">
+    <header id="header">
         <div class="container">
-            <h1><a href="index.html">Monitoring Dashboard</a></h1>
+            <h1>Xspy</h1>
             <h2>Real-Time Monitoring for <span style="color:#12D640">iOS Activities</span></h2>
             <nav class="nav-menu">
                 <ul>
@@ -140,7 +275,8 @@
     </header>
 
     <!-- Main Content Section -->
-    <main id="protectedContent" style="display: none;">
+    <main id="protectedContent">
+        <div id="welcomeMessage" class="welcome-message">Welcome to the iOS Monitoring Dashboard!</div>
         <h1>iOS Monitoring Dashboard</h1>
         <div class="activity-buttons">
             <button onclick="fetchData('Notifications')" class="notifications"><i class="fas fa-bell"></i> Notifications</button>
@@ -152,29 +288,30 @@
             <button onclick="fetchData('FileManager')" class="file-manager"><i class="fas fa-folder-open"></i> File Manager</button>
             <button onclick="fetchData('Keystrokes')" class="keystrokes"><i class="fas fa-keyboard"></i> Keystrokes</button>
         </div>
-        
+
         <div id="dataDisplay">Select an activity to display data here.</div>
     </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p class="copyright">All copyright reserved by ©️ Xspy.</p>
+        <p class="footer-link"><a href="https://satishx-droid.github.io/" target="_blank">Made with ❤️ by SatishX-Droid</a></p>
+    </footer>
 
     <script>
         // Function to fetch data based on activity type
         function fetchData(activityType) {
             fetch(`https://iosx.onrender.com/fetch/${activityType}`, {
-                credentials: 'include' // Important for sending cookies with the request
+                credentials: 'include'
             })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Failed to fetch data");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    document.getElementById('dataDisplay').textContent = data.data || "No data available";
-                })
-                .catch(error => {
-                    console.error("Error fetching data:", error);
-                    document.getElementById('dataDisplay').textContent = "Error fetching data.";
-                });
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('dataDisplay').textContent = data.data || "No data available";
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                document.getElementById('dataDisplay').textContent = "Error fetching data.";
+            });
         }
     </script>
 </body>
