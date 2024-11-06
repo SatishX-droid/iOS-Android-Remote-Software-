@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iOS Monitoring Dashboard</title>
+    <title>Monitoring Dashboard</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -59,7 +59,7 @@
 
         /* Close button */
         .close {
-            color: #000;
+            color: #fff;
             float: right;
             font-size: 28px;
             font-weight: bold;
@@ -230,7 +230,7 @@
                 document.getElementById("protectedContent").style.display = "block";
                 document.getElementById("welcomeMessage").style.display = "block";
             } else {
-                alert("Incorrect password);
+                alert("Incorrect password!");
             }
         }
     </script>
@@ -239,7 +239,7 @@
     <!-- Modal for password entry -->
     <div id="passwordModal" class="modal">
         <div class="modal-content">
-          <h2>Welcome To Xspy</h2>
+            <h2>Welcome To Xspy</h2>
             <input type="password" id="passwordInput" class="password-input" placeholder="Enter Your Premium Key 🗝️" />
             <br>
             <button onclick="checkPassword()" class="submit-btn">Submit</button>
@@ -257,7 +257,7 @@
     <header id="header">
         <div class="container">
             <h1>Xspy</h1>
-            <h2>Real-Time Monitoring Web-App for <span style="color:#12D640">iOS Activities</span></h2>
+            <h2>Real-Time Monitoring WebApp for <span style="color:#12D640">iOS Activities</span></h2>
             <nav class="nav-menu">
                 <ul>
                     <li class="active"><a href="#header">Home</a></li>
@@ -278,7 +278,7 @@
     <!-- Main Content Section -->
     <main id="protectedContent">
         <div id="welcomeMessage" class="welcome-message">Welcome to the iOS Monitoring Dashboard!</div>
-        <h1>iOS-Remote-Dashboard</h1>
+        <h1>iOS Monitoring Dashboard</h1>
         <div class="activity-buttons">
             <button onclick="fetchData('Notifications')" class="notifications"><i class="fas fa-bell"></i> Notifications</button>
             <button onclick="fetchData('SMS')" class="sms"><i class="fas fa-sms"></i> SMS Monitoring</button>
