@@ -1,11 +1,15 @@
 const CACHE_NAME = "xspy-cache-v1";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/style.css",
-  "/binary_rain.mp4",
-  "/manifest.json",
-  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  '/',
+                '/index.html',
+                '/style.css',
+                '/favicon.png',
+                '/binary_rain.mp4',
+                '/icons/icon-192x192.png',
+                '/icons/icon-512x512.png',
+                '/SatishX-Droid.gif',
+                '/background.gif'
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'
 ];
 
 // Install Service Worker
