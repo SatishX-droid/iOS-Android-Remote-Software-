@@ -192,20 +192,28 @@
         }
 
         /* Main header logo styling */
-        .header-logo {
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 24px;
-            font-weight: bold;
-            font-family: 'Arial', sans-serif;
-        }
+        header {
+    background-color: black;  /* Black background */
+    padding: 10px 20px;
+}
 
-        .header-logo span {
-            font-style: italic;
-            color: #12D640;
-        }
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo {
+    height: 40px;  /* Adjust the logo size */
+    margin-right: 10px;  /* Space between logo and text */
+}
+
+.logo-text {
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
+    color: white;
+    font-size: 24px;
+}
 
         /* Header Section with Navigation and Social Links */
         header #header h2 {
@@ -303,9 +311,13 @@
 </head>
 <body>
     <!-- Header logo -->
-    <div class="header-logo">
-        Xspy <span>Monitoring Dashboard</span>
+    <header id="header">
+    <div class="logo-container">
+        <img src="xspy.png" alt="Xspy Logo" class="logo">
+        <h1 class="logo-text">Xspy Web App</h1>
     </div>
+</header>
+
 
     <!-- Modal for password entry -->
     <div id="passwordModal" class="modal">
