@@ -7,7 +7,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="manifest" href="/manifest.json">  <!-- Link to the manifest file -->
+    <!-- Manifest file for PWA functionality -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000000">
+
     <style>
         /* Style the modal (popup) */
         .modal {
@@ -183,7 +186,6 @@
             font-size: 24px;
             font-weight: bold;
             font-family: 'Arial', sans-serif;
-            font-style: italic;
         }
 
         .header-logo span {
@@ -223,17 +225,53 @@
         }
     </style>
     <script>
-        // Register the service worker for PWA functionality
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/worker.js')
-            .then(registration => {
-                console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch(error => {
-                console.error('Service Worker registration failed:', error);
-            });
-        }
+    let deferredPrompt; // Variable to store the event for the installation prompt
 
+    // Listen for the beforeinstallprompt event
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent the default prompt from showing
+        e.preventDefault();
+        // Store the event to use it later
+        deferredPrompt = e;
+
+        // Show the install button
+        document.getElementById('installButton').style.display = 'block';
+
+        // When the install button is clicked, prompt the user
+        document.getElementById('installButton').addEventListener('click', () => {
+            // Hide the install button
+            document.getElementById('installButton').style.display = 'none';
+
+            // Show the install prompt
+            deferredPrompt.prompt();
+
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice
+                .then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+        });
+    });
+
+    // Register the service worker for PWA functionality
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/worker.js')
+        .then(registration => {
+            console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+            console.error('Service Worker registration failed:', error);
+        });
+    }
+</script>
+
+
+    <script>
         // Password check function
         function checkPassword() {
             var correctPassword = "f530cc8e37a7127f";  // Set your password here
@@ -250,9 +288,11 @@
     </script>
 </head>
 <body>
+  <button id="installButton" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #12D640; color: white; padding: 10px 20px; border-radius: 5px; border: none; font-size: 16px;">Install as App</button>
+
     <!-- Header logo -->
     <div class="header-logo">
-        Xspy
+        Xspy <span>Monitoring Dashboard</span>
     </div>
 
     <!-- Modal for password entry -->
@@ -331,6 +371,17 @@
             .catch(error => {
                 console.error("Error fetching data:", error);
                 document.getElementById('dataDisplay').textContent = "Error fetching data.";
+            });
+        }
+
+        // Register the service worker for PWA functionality
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
             });
         }
     </script>
