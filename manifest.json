@@ -1,12 +1,11 @@
 {
   "name": "Xspy Monitoring Dashboard",
   "short_name": "Xspy",
-  "description": "Real-Time Monitoring WebApp for iOS Activities",
-  "start_url": "/index.html",
+  "description": "Real-time monitoring dashboard for iOS activities",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#000000",
-  "orientation": "portrait-primary",
+  "theme_color": "#12D640",
   "icons": [
     {
       "src": "icons/icon-192x192.png",
