@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="manifest" href="/manifest.json">  <!-- Link to the manifest file -->
     <style>
         /* Style the modal (popup) */
         .modal {
@@ -222,6 +223,17 @@
         }
     </style>
     <script>
+        // Register the service worker for PWA functionality
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/worker.js')
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
+        }
+
         // Password check function
         function checkPassword() {
             var correctPassword = "f530cc8e37a7127f";  // Set your password here
