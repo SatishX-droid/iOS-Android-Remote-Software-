@@ -6,6 +6,7 @@
     <title>Monitoring Dashboard</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/png">
     <style>
         /* Style the modal (popup) */
         .modal {
@@ -173,19 +174,20 @@
         }
 
         /* Main header logo styling */
-        header #header {
+        .header-logo {
             background-color: black;
-            text-align: center;
-            padding: 30px 0;
-        }
-
-        header #header h1 {
-            font-family: 'Arial', sans-serif;
-            font-size: 48px;
-            font-style: italic;
             color: white;
             text-align: center;
-            margin: 0;
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            font-style: italic;
+        }
+
+        .header-logo span {
+            font-style: italic;
+            color: #12D640;
         }
 
         /* Header Section with Navigation and Social Links */
@@ -236,6 +238,11 @@
     </script>
 </head>
 <body>
+    <!-- Header logo -->
+    <div class="header-logo">
+        Xspy
+    </div>
+
     <!-- Modal for password entry -->
     <div id="passwordModal" class="modal">
         <div class="modal-content">
@@ -243,7 +250,7 @@
             <input type="password" id="passwordInput" class="password-input" placeholder="Enter Your Premium Key 🗝️" />
             <br>
             <button onclick="checkPassword()" class="submit-btn">Submit</button>
-            <p class="subheading">Made with ❤️ by SatishX-Droid</a></p>
+            <p class="subheading">Made with ❤️ by SatishX-Droid</p>
         </div>
     </div>
 
