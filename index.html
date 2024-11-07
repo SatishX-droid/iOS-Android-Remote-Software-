@@ -110,6 +110,18 @@
         .submit-btn:hover {
             background-color: #0f9c2d;
         }
+        /* Install Button */
+        #installButton {
+            background-color: #12D640;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: none;
+        }
 
         /* Heading inside the modal */
         .modal h2 {
@@ -303,6 +315,9 @@
             <br>
             <button onclick="checkPassword()" class="submit-btn">Submit</button>
             <p class="subheading">Made with ❤️ by SatishX-Droid</p>
+                        <!-- Install Button in the modal -->
+            <button id="installButton" onclick="installApp()">Install as App</button>
+            
         </div>
     </div>
 
