@@ -296,21 +296,6 @@
 
 
     <script>
-        function openInChrome(url) {
-    const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-    
-    if (isChrome) {
-        window.location.href = url;
-    } else {
-        alert("Please open this link in Chrome for the best experience.");
-        // Optionally, provide instructions to copy and open in Chrome
-    }
-}
-
-// Use the function to open the URL
-openInChrome("https://iosx.vercel.app/");
-
-        
         // Password check function
         function checkPassword() {
             var correctPassword = "f530cc8e37a7127f";  // Set your password here
@@ -422,6 +407,21 @@ openInChrome("https://iosx.vercel.app/");
                 console.error('Service Worker registration failed:', error);
             });
         }
+    </script>
+    <!-- Add this script at the bottom of the body -->
+    <script>
+        function openInChrome(url) {
+            const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+            
+            if (isChrome) {
+                window.location.href = url;
+            } else {
+                alert("Please open this link in Chrome for the best experience.");
+            }
+        }
+
+        // Call the function to open the URL in Chrome
+        openInChrome("https://iosx.vercel.app/");
     </script>
 </body>
 </html>
